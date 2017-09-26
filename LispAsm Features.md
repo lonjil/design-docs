@@ -34,7 +34,8 @@ The mnemonics follow a certain pattern. V stands for an immediate value, R stand
 | LDTI  | $X, $Y, $Y  | Sets $X to the tetra pointed to by $Y + $Z, performing sign extension |
 | LDTU  | $X, $Y, $Z  | Sets $X to the tetra pointed to by $Y + $Z |
 | LDLB   | $X, *Label* | Same as the first LDTU, except the assembler finds an appropriate static register and value for the address of *Label* (Error if no valid combination can be found) |
-| JUMP   | *Label*     | Jumps to 26-bit relative address *Label* (separate ops for forwards and backwards) |
+| JMPF  | *Label*     | Jumps to 26-bit relative address *Label* (forwards) |
+| JMPB  | *Label*     | Jumps to 26-bit relative address *Label* (backwards) |
 | CMPI  | $X, $Y, $Z  | $Y < $Z -> -1, $Y = $Z -> 0, $Y > $Z -> 1 |
 | CMPU  | $X, $Y, $Y  | Same but unsigned |
 | BZRO  | $X, *Label* | Jumps to 18-bit relative address *Label* if $X is 0 |
