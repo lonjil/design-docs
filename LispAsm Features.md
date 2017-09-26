@@ -11,41 +11,43 @@
 The 8 bit operands are X, Y, and Z. A `$` indicates a register, otherwise it is a immediate value.
 Any combination such as YZ or XYZ indicates a larger immediate value taking up 16 or 24 bits.
 
+The mnemonics follow a certain pattern. V stands for an immediate value, R stands for a register, I stands for signed, and U stands for unsigned.
+
 * Op table:
 
 | Op    | Operands    | Description |
 |-------|-------------|-------------|
-| LOAD  | $X, YZ      | Loads signed value YZ into $X, performing sign extension |
-| LOADU | $X, YZ      | Loads unsigned value YZ into $X |
-| ADD   | $X, $Y, Z   | Adds $Y to Z and stores it in $X (signed) |
-| ADD   | $X, $Y, $Z  | Adds $Y to $Z and stores it in $X (signed) |
-| ADDU  | $X, $Y, Z   | Adds Y to Z and stores it in $X (unsigned) |
-| ADDU  | $X, $Y, $Z  | Adds $Y to $Z and stores it in $X (unsigned) |
-| SUB   | $X, $Y, Z   | Subtracts Z from $Y and stores it in $X (signed) |
-| SUB   | $X, $Y, $Z  | Subtracts $Z from $Y and stores it in $X (signed) |
-| SUBU  | $X, $Y, Z   | Subtracts Z from $Y and stores it in $X (unsigned) |
-| SUBU  | $X, $Y, $Z  | Subtracts $Z from $Y and stores it in $X (unsigned) |
-| LDB   | $X, $Y, $Y  | Sets $X to the byte pointed to by $Y + $Z, performing sign extension |
+| LDVI  | $X, YZ      | Loads signed value YZ into $X, performing sign extension |
+| LDVU  | $X, YZ      | Loads unsigned value YZ into $X |
+| ADVI  | $X, $Y, Z   | Adds $Y to Z and stores it in $X (signed) |
+| ADRI  | $X, $Y, $Z  | Adds $Y to $Z and stores it in $X (signed) |
+| ADVU  | $X, $Y, Z   | Adds Y to Z and stores it in $X (unsigned) |
+| ADRU  | $X, $Y, $Z  | Adds $Y to $Z and stores it in $X (unsigned) |
+| SBVI  | $X, $Y, Z   | Subtracts Z from $Y and stores it in $X (signed) |
+| SBRI  | $X, $Y, $Z  | Subtracts $Z from $Y and stores it in $X (signed) |
+| SBVU  | $X, $Y, Z   | Subtracts Z from $Y and stores it in $X (unsigned) |
+| SBRU  | $X, $Y, $Z  | Subtracts $Z from $Y and stores it in $X (unsigned) |
+| LDBI  | $X, $Y, $Y  | Sets $X to the byte pointed to by $Y + $Z, performing sign extension |
 | LDBU  | $X, $Y, $Z  | Sets $X to the byte pointed to by $Y + $Z |
-| LDW   | $X, $Y, $Y  | Sets $X to the wyde pointed to by $Y + $Z, performing sign extension |
+| LDWI  | $X, $Y, $Y  | Sets $X to the wyde pointed to by $Y + $Z, performing sign extension |
 | LDWU  | $X, $Y, $Z  | Sets $X to the wyde pointed to by $Y + $Z |
-| LDT   | $X, $Y, $Y  | Sets $X to the tetra pointed to by $Y + $Z, performing sign extension |
+| LDTI  | $X, $Y, $Y  | Sets $X to the tetra pointed to by $Y + $Z, performing sign extension |
 | LDTU  | $X, $Y, $Z  | Sets $X to the tetra pointed to by $Y + $Z |
-| LDA   | $X, *Label* | Same as the first LDTU, except the assembler finds an appropriate static register and value for the address of *Label* (Error if no valid combination can be found) |
-| JMP   | *Label*     | Jumps to 26-bit relative address *Label* (separate ops for forwards and backwards) |
-| CMP   | $X, $Y, $Z  | $Y < $Z -> -1, $Y = $Z -> 0, $Y > $Z -> 1 |
+| LDLB   | $X, *Label* | Same as the first LDTU, except the assembler finds an appropriate static register and value for the address of *Label* (Error if no valid combination can be found) |
+| JUMP   | *Label*     | Jumps to 26-bit relative address *Label* (separate ops for forwards and backwards) |
+| CMPI  | $X, $Y, $Z  | $Y < $Z -> -1, $Y = $Z -> 0, $Y > $Z -> 1 |
 | CMPU  | $X, $Y, $Y  | Same but unsigned |
-| BZ    | $X, *Label* | Jumps to 18-bit relative address *Label* if $X is 0 |
-| BNZ   | $X, *Label* | Jumps to 18-bit relative address *Label* if $X is not 0 |
-| BP    | $X, *Label* | Jumps to 18-bit relative address *Label* if $X is positive |
-| BNP   | $X, *Label* | Jumps to 18-bit relative address *Label* if $X is not positive |
-| BN    | $X, *Label* | Jumps to 18-bit relative address *Label* if $X is is negative |
-| BNN   | $X, *Label* | Jumps to 18-bit relative address *Label* if $X is not negative |
-| LSH   | $X, $Y, Z   | Shift $Y left by Z, filling with 0 and storing it in $X |
-| LSH   | $X, $Y, $Z  | Shift $Y left by $Z, filling with 0 and storing it in $X |
-| LASH  | $X, $Y, Z   | Shift $Y left by Z, filling with 0 and storing it in $X |
-| LASH  | $X, $Y, $Z  | Shift $Y left by $Z, filling with 0 and storing it in $X |
-| RSH   | $X, $Y, Z   | Shift $Y left by Z, filling with 0 and storing it in $X |
-| RSH   | $X, $Y, $Z  | Shift $Y left by $Z, filling with 0 and storing it in $X |
-| RASH  | $X, $Y, Z   | Shift $Y left by Z, filling with the leftmost bit and storing it in $X |
-| RASH  | $X, $Y, $Z  | Shift $Y left by $Z, filling with the leftmost bit and storing it in $X |
+| BZRO  | $X, *Label* | Jumps to 18-bit relative address *Label* if $X is 0 |
+| BNZO  | $X, *Label* | Jumps to 18-bit relative address *Label* if $X is not 0 |
+| BPOS  | $X, *Label* | Jumps to 18-bit relative address *Label* if $X is positive |
+| BNPO  | $X, *Label* | Jumps to 18-bit relative address *Label* if $X is not positive |
+| BNEG  | $X, *Label* | Jumps to 18-bit relative address *Label* if $X is is negative |
+| BNNE  | $X, *Label* | Jumps to 18-bit relative address *Label* if $X is not negative |
+| SHLV  | $X, $Y, Z   | Shift $Y left by Z, filling with 0 and storing it in $X |
+| SHLR  | $X, $Y, $Z  | Shift $Y left by $Z, filling with 0 and storing it in $X |
+| SLVO  | $X, $Y, Z   | Shift $Y left by Z, filling with 0 and storing it in $X |
+| SLRO  | $X, $Y, $Z  | Shift $Y left by $Z, filling with 0 and storing it in $X |
+| SHRV  | $X, $Y, Z   | Shift $Y left by Z, filling with 0 and storing it in $X |
+| SHRR  | $X, $Y, $Z  | Shift $Y left by $Z, filling with 0 and storing it in $X |
+| SRVO  | $X, $Y, Z   | Shift $Y left by Z, filling with the leftmost bit and storing it in $X |
+| SRRO  | $X, $Y, $Z  | Shift $Y left by $Z, filling with the leftmost bit and storing it in $X |
