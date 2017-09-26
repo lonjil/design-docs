@@ -48,7 +48,7 @@ The mnemonics follow a certain pattern. V stands for an immediate value, R stand
 | SHLR  | $X, $Y, $Z  | Shift $Y left by $Z, filling with 0 and storing it in $X |
 | SLVO  | $X, $Y, Z   | Shift $Y left by Z, filling with 0 and storing it in $X |
 | SLRO  | $X, $Y, $Z  | Shift $Y left by $Z, filling with 0 and storing it in $X |
-| SHRV  | $X, $Y, Z   | Shift $Y left by Z, filling with 0 and storing it in $X |
-| SHRR  | $X, $Y, $Z  | Shift $Y left by $Z, filling with 0 and storing it in $X |
-| SRVO  | $X, $Y, Z   | Shift $Y left by Z, filling with the leftmost bit and storing it in $X |
-| SRRO  | $X, $Y, $Z  | Shift $Y left by $Z, filling with the leftmost bit and storing it in $X |
+| SHRV  | $X, $Y, Z   | Shift $Y right by Z, filling with 0 and storing it in $X |
+| SHRR  | $X, $Y, $Z  | Shift $Y right by $Z, filling with 0 and storing it in $X |
+| SRVO  | $X, $Y, Z   | Shift $Y right by Z, filling with the leftmost bit and storing it in $X |
+| SRRO  | $X, $Y, $Z  | Shift $Y right by $Z, filling with the leftmost bit and storing it in $X |
