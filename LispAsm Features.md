@@ -59,8 +59,16 @@ Here is an initial proposal:
 
 |   | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | A    | B    | C    | D    | E    | F    |
 |---|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
-| 0 | NOOP | LDVI | LDVU | LDBI | LDBU | LDWI | LDWU | LDTI | LDTU |      |      |      |      |      |      |      |
+| 0 | LDVI | LDVU | LDBI | LDBU | LDWI | LDWU | LDTI | LDTU |      |      |      |      |      |      |      |      |
 | 1 | ADVI | ADRI | ADVU | ADRU | SBVI | SBRI | SBVU | SBRU | MLVI | MLRI | MLVU | MLRU | DVVI | DVRI | DVVU | DVRU |
 | 2 | JMPF | JMPB | CMPI | CMPU | BZRO | BNZO | BPOS | BNPO | BNEG | BNNE |      |      |      |      |      |      |
 | 3 | SHLV | SHLR | SLVO | SLRO | SHRV | SHRR | SRVO | SRRO |      |      |      |      |      |      |      |      |
 | 4 |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
+
+...
+
+
+|   | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | A    | B    | C    | D    | E    | F    |
+|---|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
+| E |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
+| F |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      | NOOP |
