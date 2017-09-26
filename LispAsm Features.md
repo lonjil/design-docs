@@ -62,7 +62,7 @@ Here is an initial proposal:
 | 0 | LDVI | LDVU | LDBI | LDBU | LDWI | LDWU | LDTI | LDTU |      |      |      |      |      |      |      |      |
 | 1 | ADVI | ADRI | ADVU | ADRU | SBVI | SBRI | SBVU | SBRU | MLVI | MLRI | MLVU | MLRU | DVVI | DVRI | DVVU | DVRU |
 | 2 | JMPF | JMPB | CMPI | CMPU | BZRO | BNZO | BPOS | BNPO | BNEG | BNNE |      |      |      |      |      |      |
-| 3 | SHLV | SHLR | SLVA | SLRA | SHRV | SHRR | SRVA | SRRA |      |      |      |      |      |      |      |      |
+| 3 | SHLV | SHLR | SLAV | SLAR | SHRV | SHRR | SRAV | SRAR |      |      |      |      |      |      |      |      |
 | 4 |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
 
 ...
