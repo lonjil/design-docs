@@ -46,12 +46,12 @@ The mnemonics follow a certain pattern. V stands for an immediate value, R stand
 | BNNE  | $X, *Label* | Jumps to 18-bit relative address *Label* if $X is not negative |
 | SHLV  | $X, $Y, Z   | Shift $Y left by Z, filling with 0 and storing it in $X |
 | SHLR  | $X, $Y, $Z  | Shift $Y left by $Z, filling with 0 and storing it in $X |
-| SLVO  | $X, $Y, Z   | Shift $Y left by Z, filling with 0 and storing it in $X |
-| SLRO  | $X, $Y, $Z  | Shift $Y left by $Z, filling with 0 and storing it in $X |
+| SLAV  | $X, $Y, Z   | Shift $Y left by Z, filling with 0 and storing it in $X |
+| SLAR  | $X, $Y, $Z  | Shift $Y left by $Z, filling with 0 and storing it in $X |
 | SHRV  | $X, $Y, Z   | Shift $Y right by Z, filling with 0 and storing it in $X |
 | SHRR  | $X, $Y, $Z  | Shift $Y right by $Z, filling with 0 and storing it in $X |
-| SRVO  | $X, $Y, Z   | Shift $Y right by Z, filling with the leftmost bit and storing it in $X |
-| SRRO  | $X, $Y, $Z  | Shift $Y right by $Z, filling with the leftmost bit and storing it in $X |
+| SRAV  | $X, $Y, Z   | Shift $Y right by Z, filling with the leftmost bit and storing it in $X |
+| SRAV  | $X, $Y, $Z  | Shift $Y right by $Z, filling with the leftmost bit and storing it in $X |
 
 ## Opcode Format
 
@@ -62,7 +62,7 @@ Here is an initial proposal:
 | 0 | LDVI | LDVU | LDBI | LDBU | LDWI | LDWU | LDTI | LDTU |      |      |      |      |      |      |      |      |
 | 1 | ADVI | ADRI | ADVU | ADRU | SBVI | SBRI | SBVU | SBRU | MLVI | MLRI | MLVU | MLRU | DVVI | DVRI | DVVU | DVRU |
 | 2 | JMPF | JMPB | CMPI | CMPU | BZRO | BNZO | BPOS | BNPO | BNEG | BNNE |      |      |      |      |      |      |
-| 3 | SHLV | SHLR | SLVO | SLRO | SHRV | SHRR | SRVO | SRRO |      |      |      |      |      |      |      |      |
+| 3 | SHLV | SHLR | SLVA | SLRA | SHRV | SHRR | SRVA | SRRA |      |      |      |      |      |      |      |      |
 | 4 |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |      |
 
 ...
